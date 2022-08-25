@@ -1,0 +1,12 @@
+api:
+  id: '18086602'
+  version: '${apiversion}'
+
+tls:
+  type: 'pkcs12'
+  path: 'check-in-papi.p12'
+  alias: 'server'
+  password: 'mule12345'
+
+https:
+  port: '8082'
