@@ -61,17 +61,17 @@ jobs:
           
       # maven build command, could add other flags if needed
       - name: Build
-        run: mvn -B package --file check-in-papi-app/pom.xml
+        run: mvn -B package --file checkinpapi/pom.xml
         
       - name: Stamp artifact file name with commit hash
         run: |
-          artifactName1=$(ls check-in-papi-app/target/*.jar | head -1)
+          artifactName1=$(ls checkinpapi/target/*.jar | head -1)
           commitHash=$(git rev-parse --short "$GITHUB_SHA")
-          artifactName2=$(ls check-in-papi-app/target/*.jar | head -1 | sed "s/.jar/.$commitHash.jar/g")
+          artifactName2=$(ls checkinpapi/target/*.jar | head -1 | sed "s/.jar/.$commitHash.jar/g")
           mv $artifactName1 $artifactName2
           
       # save the produced jar file to be deployed later    
       - uses: actions/upload-artifact@v3
         with:
             name: artifacts
-            path: check-in-papi-app/target/*.jar
+            path: checkinpapi/target/*.jar

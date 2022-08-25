@@ -20,12 +20,6 @@
 
 	<properties>
 		<apiversion>v1</apiversion>
-		<applicationName>checkinpapi</applicationName>
-		<environment>dev</environment>
-		<api.id>18086602</api.id>
-		<encrypt.key>INVALID</encrypt.key>
-		<client_id>faa515f7c9bf4e4ab85ebeabc2b2436f</client_id>
-		<client_secret>9644Cc714fDC4e809Dc08244879099cC</client_secret>
 	</properties>
 
 	<build>
