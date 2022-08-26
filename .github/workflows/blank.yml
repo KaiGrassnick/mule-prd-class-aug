@@ -90,7 +90,6 @@ jobs:
     - uses: actions/download-artifact@v3
       with:
         name: artifacts
-
     - uses: s4u/maven-settings-action@v2.6.0
       with:
         servers: |
@@ -103,6 +102,11 @@ jobs:
       env:
         AUTHOR: "Andres Morales"
       run: |
+        ls -lah
         artifactName=$(ls *.jar | head -1)
         mvn deploy -DmuleDeploy -Dap.clientid=${{ secrets.AP_CLIENT_ID }} \
-        -Dap.clientsecret=${{ secrets.AP_CLIENT_SECRET }}
+        -Dap.clientsecret=${{ secrets.AP_CLIENT_SECRET }} \
+        -DapplicationName=checkinpapi \
+        -Denvironment=dev \
+        -Dapi.id=18086602 \
+        -Dencrypt.key=secure12345
