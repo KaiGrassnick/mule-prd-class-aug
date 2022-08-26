@@ -104,8 +104,13 @@ jobs:
       run: |
         ls -lah
         artifactName=$(ls *.jar | head -1)
-        mvn deploy -DmuleDeploy -Dap.clientid=${{ secrets.AP_CLIENT_ID }} \
+        mvn deploy \
+        -f checkinpapi/pom.xml \
+        -DmuleDeploy \
+        -Dap.clientid=${{ secrets.AP_CLIENT_ID }} \
         -Dap.clientsecret=${{ secrets.AP_CLIENT_SECRET }} \
+        -Dclient_id=${{ secrets.CLIENT_ID }} \
+        -Dclient_secret=${{ secrets.CLIENT_SECRET }} \
         -DapplicationName=checkinpapi \
         -Denvironment=dev \
         -Dapi.id=18086602 \
